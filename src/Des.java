@@ -9,10 +9,8 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-import java.util.Scanner;
 
 public class Des {
-    public static final String KEY = "fuckfuckfuckfuckfuckfuck";
     /**
      * 加密（使用DES算法）
      *
@@ -90,29 +88,5 @@ public class Des {
             btxts[i / 2] = (byte) Integer.parseInt(txt.substring(i, i + 2), 16);
         }
         return (new String(cipher.doFinal(btxts)));
-    }
-
-    public static void main(String[] args)throws InvalidKeyException,
-            NoSuchAlgorithmException, InvalidKeySpecException,
-            NoSuchPaddingException, IllegalBlockSizeException,
-            BadPaddingException{
-        Scanner s = new Scanner(System.in);
-        Scanner s1 = new Scanner(System.in);
-        Scanner s2 = new Scanner(System.in);
-        Scanner s3 = new Scanner(System.in);
-        Scanner s4 = new Scanner(System.in);
-        System.out.println("What you want(0en,1de): ");
-        while (true) {
-            String line = s.nextLine();
-            if (line.equals("0")){
-                System.out.println("原文：");
-                System.out.println("密文："+encrypt(s1.nextLine(), KEY));
-                break;
-            }else if(line.equals("1")){
-                System.out.println("密文：");
-                System.out.println("原文："+decrypt(s2.nextLine(), KEY));
-                break;
-            }
-        }
     }
 } 
